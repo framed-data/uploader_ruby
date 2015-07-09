@@ -21,6 +21,6 @@ Or install it yourself as:
 ## Usage
 
 ```ruby
-FramedUploader.configure("my-api-key")
-FramedUploader.upload("/path/to/my-user-dump.csv")
+uploader = FramedUploader::Uploader.new("my-api-key")
+uploader.upload("/path/to/my-user-dump.csv")
 ```
