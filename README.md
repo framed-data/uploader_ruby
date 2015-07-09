@@ -20,7 +20,17 @@ Or install it yourself as:
 
 ## Usage
 
+Using the CLI runner script:
+
 ```ruby
+bundle exec framed-upload API_KEY FILENAME
+```
+
+Or as a library:
+
+```ruby
+require 'framed_uploader'
+
 uploader = FramedUploader::Uploader.new("my-api-key")
 uploader.upload("/path/to/my-user-dump.csv")
 ```

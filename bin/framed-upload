@@ -1,0 +1,15 @@
+#!/usr/bin/ruby
+
+require 'framed_uploader'
+
+api_key, *filenames = ARGV
+
+USAGE  = "Usage: framed-upload API_KEY [FILENAME ...]"
+
+if api_key.nil? || filenames.empty?
+  puts USAGE
+  exit 1
+end
+
+uploader = FramedUploader::Uploader.new(api_key)
+uploader.upload(filenames)
