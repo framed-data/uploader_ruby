@@ -1,6 +1,6 @@
 # FramedUploader
 
-Framd user CSV uploads for Ruby.
+Framed user CSV uploads for Ruby.
 
 ## Installation
 
