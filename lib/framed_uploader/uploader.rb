@@ -8,7 +8,6 @@ module FramedUploader
 
   class Uploader
     CREDS_ENDPOINT = 'https://app.framed.io/users/credentials'
-
     REGION = 'us-west-1'
     BUCKET = 'io.framed.users'
 
