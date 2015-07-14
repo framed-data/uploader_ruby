@@ -7,7 +7,7 @@ module FramedUploader
   class FileNotFoundError < StandardError; end
 
   class Uploader
-    CREDS_ENDPOINT = 'https://app.framed.io/users/credentials'
+    CREDS_ENDPOINT = 'https://app.framed.io/uploads/credentials'
 
     def initialize(api_key)
       @api_key = api_key
