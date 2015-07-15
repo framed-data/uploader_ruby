@@ -86,8 +86,9 @@ module FramedUploader
     # Retrieve S3 credentials and information from the Framed API
     def get_credentials!
       uri = URI(CREDS_ENDPOINT)
-      resp = Net::HTTP.post_form(uri, 'api_key' => @api_key)
-
+      req = Net::HTTP::Post.new(uri.request_uri)
+      req.basic_auth(@api_key, "")
+      resp = Net::HTTP.new(uri.host, uri.port).request(request)
       if resp.is_a?(Net::HTTPSuccess)
         JSON.parse(resp.body, {:symbolize_names => true})
       else
