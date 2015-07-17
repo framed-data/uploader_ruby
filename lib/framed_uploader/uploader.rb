@@ -13,9 +13,7 @@ module FramedUploader
       @api_key = api_key
     end
 
-    def upload(filename_or_filenames)
-      filenames = array_wrap(filename_or_filenames)
-
+    def upload(*filenames)
       creds_response = get_credentials!
       s3 = s3_client(creds_response)
       batch_timestamp = Time.now.to_i
@@ -32,16 +30,6 @@ module FramedUploader
     end
 
     private
-
-    def array_wrap(object)
-      if object.nil?
-        []
-      elsif object.respond_to?(:to_ary)
-        object.to_ary || [object]
-      else
-        [object]
-      end
-    end
 
     # options - Hash of
     #   :region

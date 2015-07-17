@@ -12,4 +12,4 @@ if api_key.nil? || filenames.empty?
 end
 
 uploader = FramedUploader::Uploader.new(api_key)
-uploader.upload(filenames)
+uploader.upload(*filenames)
