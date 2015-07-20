@@ -68,7 +68,10 @@ module FramedUploader
       uri = URI(CREDS_ENDPOINT)
       req = Net::HTTP::Post.new(uri.request_uri)
       req.basic_auth(@api_key, "")
-      resp = Net::HTTP.new(uri.host, uri.port).request(request)
+      resp = Net::HTTP.start(uri.host, uri.port, :use_ssl => true) do |https|
+        https.request(req)
+      end
+
       if resp.is_a?(Net::HTTPSuccess)
         JSON.parse(resp.body, {:symbolize_names => true})
       else
