@@ -28,6 +28,14 @@ You will need your API key, which you can get from your Framed dashboard.
 
 As a library:
 
+Using the CLI runner script:
+
+```ruby
+bundle exec framed-upload API_KEY FILENAME
+```
+
+Or as a library:
+
 ```ruby
 require 'framed_uploader'
 
