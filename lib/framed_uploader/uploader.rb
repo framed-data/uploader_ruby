@@ -27,7 +27,7 @@ module FramedUploader
       filenames.each do |filename|
         s3_key = tmpl.expand({"company_id" => company_id,
                               "timestamp" => batch_timestamp,
-                              "filename" => filename}).path
+                              "filename" => File.basename(filename)}).path
 
         File.open(filename, 'rb') do |body|
           s3.put_object(bucket: bucket, key: s3_key, body: body)
